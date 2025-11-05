@@ -1,138 +1,70 @@
 body {
-    margin: 0; /*กำหนดขนาดแนะนำใส่ไว้ 0*/
-    font-family: 'Prompt', sans-serif; /*ฟอนต์ของตัวเว็บ*/
-    background-color: #0f0f1f; /*สีพื้นหลัง*/
-    color: #fff; /*สีฟอนต์ของตัวเว็บ*/
-} 
-/* --- 1. แถบเมนูหลัก --- */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #e8f4ff;
+}
 
+/* Navbar */
 .navbar {
     display: flex;
-    /* 1. สั่งให้ของข้างใน (logo, links) เรียงแนวนอน */
     justify-content: space-between;
-    /* 2. ดัน logo ไปซ้ายสุด, links ไปขวาสุด */
-    align-items: center;
-    /* 3. จัดให้ logo และ links อยู่กึ่งกลางแนวตั้ง */
-    padding: 20px 60px;
-    /* 4. ระยะห่างภายใน (บนล่าง 20px, ซ้ายขวา 60px) */
-    background: rgba(0, 0, 0, 0.5);
-    /* 5. พื้นหลังสีดำ โปร่งแสง 50% */
-    position: fixed;
-    /* 6. ตรึงแถบเมนูไว้กับหน้าจอ (เลื่อนเมาส์แล้วยังอยู่) */
-    width: 100%;
-    /* 7. กว้างเต็มหน้าจอ */
-    top: 0;
-    /* 8. (ใช้คู่กับ fixed) ให้อยู่บนสุดของจอ */
-    z-index: 10;
-    /* 9. ทำให้อยู่ทับบนเนื้อหาอื่นเสมอ */
+    padding: 15px 40px;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-
-
-/* --- 2. โลโก้ --- */
-
-.logo {
-    font-size: 1.8rem;
-    /* 1. ขนาดตัวอักษร */
-    color: #b0eb00;
-    /* 2. สีตัวอักษร (เขียวมะนาว) */
-    font-weight: bold;
-    /* 3. ทำตัวหนา */
-}
-
-
-/* --- 3. กล่องที่ครอบลิงก์เมนู --- */
 
 .nav-links {
-    list-style: none;
-    /* 1. ลบจุด (•) หน้าลิสต์ (ถ้าเป็น <ul>) */
     display: flex;
-    /* 2. สั่งให้ลิงก์ข้างในเรียงแนวนอน */
-    gap: 30px;
-    /* 3. (ใช้คู่กับ flex) สร้างช่องว่าง 30px ระหว่างลิงก์ */
+    gap: 20px;
+    list-style: none;
 }
-
-
-/* --- 4. ลิงก์เมนูแต่ละอัน (<a>) --- */
 
 .nav-links a {
-    color: #ffbf00;
-    /* 1. สีตัวอักษร (เหลืองทอง) */
     text-decoration: none;
-    /* 2. ลบเส้นใต้ลิงก์ */
-    transition: color 0.3s;
-    /* 3. ถ้าสีเปลี่ยน ให้ค่อยๆ เปลี่ยนใน 0.3 วิ */
+    color: #007bff;
     font-weight: bold;
-    /* 4. ทำตัวหนา */
 }
 
-
-/* --- 5. ลิงก์ตอนเมาส์ชี้ (:hover) --- */
-
-.nav-links a:hover {
-    color: #00ff40;
-    /* 1. เปลี่ยนเป็นสีเขียวสว่าง ตอนเมาส์ชี้ */
+.logo {
+    color: #007bff;
+    font-weight: bold;
 }
-/* --- 1. ส่วน Hero (หน้าแรก) --- */
 
+/* Hero Section */
 .hero {
-    background-image: url('...'); /* 1. ใส่ภาพพื้นหลัง (จาก URL) */
-    background-size: cover; /* 2. ทำให้ภาพเต็มพื้นที่ (อาจถูกตัดขอบ) */
-    background-position: center; /* 3. จัดตำแหน่งภาพให้อยู่กึ่งกลาง */
-    height: 100vh; /* 4. ความสูง 100% ของหน้าจอ (เต็มจอพอดี) */
-    display: flex; /* 5. เปิดโหมด Flexbox (เพื่อจัดของข้างใน) */
-    align-items: center; /* 6. จัดของข้างใน (hero-content) ให้อยู่กึ่งกลาง *แนวตั้ง* */
-    justify-content: center; /* 7. จัดของข้างใน (hero-content) ให้อยู่กึ่งกลาง *แนวนอน* */
-    text-align: center; /* 8. จัดข้อความข้างในทั้งหมดให้ชิดกลาง */
-    padding: 0 20px; /* 9. กันระยะห่างซ้าย-ขวา 20px (กันชิดขอบจอ) */
-    position: relative; /* 10. (สำคัญ) ตั้งเป็น "จุดอ้างอิง" ให้กับ .hero::before */
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* * .hero::before 
- * นี่คือ "ฟิล์ม" สีดำโปร่งแสงที่ใช้ทับบนรูปภาพพื้นหลัง
- * เพื่อให้ข้อความ (สีขาว) อ่านง่ายขึ้น
- */
-.hero::before {
-    content: ""; /* 1. จำเป็นต้องใส่ เพื่อให้ ::before แสดงผล */
-    position: absolute; /* 2. (ใช้คู่กับ relative) ให้ลอยทับ .hero */
-    inset: 0; /* 3. ขยายเต็มขอบ .hero (ย่อมาจาก top/right/bottom/left: 0) */
-    background: rgba(0, 0, 0, 0.6); /* 4. สร้าง "ฟิล์ม" สีดำ ทึบ 60% */
-}
-
-/* กล่องที่ครอบเนื้อหา (หัวข้อ, ย่อหน้า, ปุ่ม) */
 .hero-content {
-    position: relative; /* 1. ตั้งเป็น relative (จำเป็นสำหรับ z-index) */
-    z-index: 2; /* 2. (สำคัญ) ทำให้เนื้อหานี้ลอยอยู่ *เหนือ* ฟิล์ม (::before) */
-    max-width: 600px; /* 3. จำกัดความกว้างสูงสุด (ไม่ให้ข้อความยาวไป) */
+    text-align: center;
 }
 
-/* หัวข้อหลักใน Hero */
-.hero h2 {
-    font-size: 2.8rem; /* 1. ขนาดตัวอักษร (ใหญ่) */
-    color: #fff; /* 2. สีตัวอักษร (สีขาว) */
+.hero-content input {
+    padding: 10px 14px;
+    width: 240px;
+    border-radius: 6px;
+    border: 1px solid #007bff;
+    margin-top: 20px;
 }
 
-/* ข้อยความย่อหน้าใน Hero */
-.hero p {
-    font-size: 1.2rem; /* 1. ขนาดตัวอักษร (เล็กกว่า h2) */
-    margin-top: 15px; /* 2. ระยะห่างจากขอบบน (จาก h2) */
-    color: #ccc; /* 3. สีตัวอักษร (สีเทาอ่อน) */
-}
-
-/* --- 2. ปุ่ม (Button) --- */
-
+/* Button */
 .btn {
-    display: inline-block; /* 1. ทำให้เป็น "บล็อก" (ปรับขนาดได้) แต่ยังอยู่ในบรรทัด */
-    margin-top: 25px; /* 2. ระยะห่างจากขอบบน (จาก p) */
-    padding: 12px 28px; /* 3. ระยะห่างภายในปุ่ม (บนล่าง 12, ซ้ายขวา 28) */
-    background: #a97fff; /* 4. สีพื้นหลังปุ่ม (ม่วง) */
-    color: #fff; /* 5. สีตัวอักษร (ขาว) */
-    text-decoration: none; /* 6. ลบเส้นใต้ลิงก์ */
-    border-radius: 30px; /* 7. ทำให้ขอบปุ่มโค้งมน */
-    transition: background 0.3s, transform 0.3s; /* 8. อนิเมชั่น: ค่อยๆ เปลี่ยน สี และ ตำแหน่ง ใน 0.3 วิ */
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-/* ปุ่มตอนเมาส์ชี้ */
-.btn:hover {
-    background: #8e5fff; /* 1. เปลี่ยนสีพื้นหลัง (ม่วงเข้มขึ้น) */
-    transform: translateY(-3px); /* 2. "ยก" ปุ่มขึ้น 3px (ให้ดูลอยๆ) */
+#result {
+    font-size: 20px;
+    margin-top: 25px;
+    color: #004a9f;
+    font-weight: bold;
 }
