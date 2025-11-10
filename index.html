@@ -1,35 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>burps</title>
+    <title>เช็คความเบียว.io</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
 </head>
+
 <body>
-   <header>
-            <nav class="navbar">
-            <h1 class="logo">เช็คความเบียว.io</h1>
-            <ul class="nav-links">
-                <li><a href="#">home</a></li>
-                <li><a href="#">profile</a></li>
-                <li><a href="#">about me</a></li>
-                <li><a href="#">contact</a></li>
-            </ul>
-        </nav>
-   </header> 
-       <section class="hero">
-        <div class="hero-content">
-            <h2>welcome to เช็คความเบียว.io</h2>
-            <p>เว็บนี้ใช้ระบบสุ่มเลข อย่าหาเชื่อนะ😭😭</p>
-            
-            <input type="text" id = "inputText" placeholder="Enter your sentence...">
-           <p id="result"></p>
-           <button class="btn" onclick="checkbieaw()">เช็คความเบียว</button>
+    <div class="container">
+        <!-- ===== Input Section ===== -->
+        <div class="input-section">
+            <h1>เช็คความ<span style="color:#ff0000;">เบียว</span>.io</h1>
+            <p class="subtitle">(text)</p>
+
+            <!-- User input text box -->
+            <input type="text" id="textInput" placeholder="คุณคิดจะทำอะไร ?">
+
+            <!-- Button to trigger the analysis -->
+            <button id="checkButton">เช็คเลย!</button>
+
+            <!-- Footer credit -->
+            <p class="subtitlefoot">Made by <a href="https://github.com/YukaXcel"><span>@name</span></a>
+            </p>
+
         </div>
-    </section>
+
+        <!-- ===== Result Section (hidden until user clicks the button) ===== -->
+        <div class="result-section" id="resultSection">
+
+            <!-- Loading animation shown while analyzing -->
+            <div class="analyzing" id="analyzing">
+                <div class="spinner"></div>
+                <p>กำลังวิเคราะห์...</p>
+            </div>
+
+            <!-- Final result card -->
+            <div class="result-card" id="resultCard">
+                <h2>ยินดีด้วยคุณ <span id="resultText"></span></h2>
+                <p class="percentage-label">ระดับความเบียวของคุณ</p>
+                <p class="percentage" id="percentage">0%</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JS file -->
     <script src="script.js"></script>
 </body>
 
 </html>
-

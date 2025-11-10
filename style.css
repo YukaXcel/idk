@@ -1,70 +1,290 @@
-body {
+/* Reset styles and use Kanit font */
+
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #e8f4ff;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: kanit;
+    font-weight: bold;
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 40px;
-    background: #ffffff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
 
-.nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-}
+/* Anchor tag styling */
 
-.nav-links a {
+a {
+    color: white;
     text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
 }
 
-.logo {
-    color: #007bff;
-    font-weight: bold;
-}
 
-/* Hero Section */
-.hero {
-    height: 90vh;
+/* Page background and layout */
+
+body {
+    background-color: #1a1a1a;
+    color: white;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.hero-content {
+
+/* Container width limit */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+
+/* Centered input section */
+
+.input-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+/* Heading and subtitle */
+
+h1 {
+    font-size: 10rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #888;
+    margin-bottom: 30px;
+}
+
+
+/* Text input box */
+
+#textInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid #444;
+    background-color: #2a2a2a;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+
+/* Focus effect on input */
+
+#textInput:focus {
+    border-color: #0066ff;
+}
+
+
+/* Placeholder color */
+
+#textInput::placeholder {
+    color: #666;
+}
+
+
+/* Main button */
+
+#checkButton {
+    padding: 15px 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #0066ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+
+/* Hover & click effects */
+
+#checkButton:hover {
+    background-color: #0052cc;
+    transform: scale(1.05);
+}
+
+#checkButton:active {
+    transform: scale(0.98);
+}
+
+
+/* Hidden by default */
+
+.result-section {
+    display: none;
     text-align: center;
 }
 
-.hero-content input {
-    padding: 10px 14px;
-    width: 240px;
-    border-radius: 6px;
-    border: 1px solid #007bff;
-    margin-top: 20px;
+
+/* Shown after button click */
+
+.result-section.show {
+    display: block;
 }
 
-/* Button */
-.btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    cursor: pointer;
+
+/* Loading spinner section */
+
+.analyzing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-#result {
-    font-size: 20px;
-    margin-top: 25px;
-    color: #004a9f;
+.analyzing.hidden {
+    display: none;
+}
+
+
+/* Circular spinning loader */
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid #333;
+    border-top: 5px solid #0066ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+
+/* Spinner animation keyframes */
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Loading text style */
+
+.analyzing p {
+    font-size: 1.2rem;
+    color: #888;
+}
+
+
+/* Result card (hidden initially) */
+
+.result-card {
+    display: none;
+    background-color: #2a2a2a;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 500px;
+    margin: 0 auto;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+
+/* When result shows */
+
+.result-card.show {
+    display: block;
+}
+
+
+/* Fade-in animation */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Headline inside result card */
+
+.result-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+
+/* Highlight color for result text */
+
+#resultText {
+    color: #0066ff;
+}
+
+
+/* Sub-label under result */
+
+.percentage-label {
+    color: #888;
+    margin-bottom: 15px;
+}
+
+
+/* Big percentage text */
+
+.percentage {
+    font-size: 4rem;
     font-weight: bold;
+    animation: numberCount 1s ease-out;
+}
+
+
+/* Animation when number appears */
+
+@keyframes numberCount {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Color variations based on result */
+
+.percentage.red {
+    color: #ff0000;
+}
+
+.percentage.yellow {
+    color: #ffff00;
+}
+
+.percentage.green {
+    color: #00ff00;
+}
+
+
+/* Responsive design for small screens */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    #textInput {
+        max-width: 100%;
+    }
+    .result-card {
+        padding: 30px 20px;
+    }
+    .percentage {
+        font-size: 3rem;
+    }
 }
